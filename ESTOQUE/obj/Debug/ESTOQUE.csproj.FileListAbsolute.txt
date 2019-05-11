@@ -1,0 +1,11 @@
+C:\Users\marce\Documents\2BCC\Linguagem de Programação\Visual Studio C#\ESTOQUE\ESTOQUE\bin\Debug\ESTOQUE.exe.config
+C:\Users\marce\Documents\2BCC\Linguagem de Programação\Visual Studio C#\ESTOQUE\ESTOQUE\bin\Debug\ESTOQUE.exe
+C:\Users\marce\Documents\2BCC\Linguagem de Programação\Visual Studio C#\ESTOQUE\ESTOQUE\bin\Debug\ESTOQUE.pdb
+C:\Users\marce\Documents\2BCC\Linguagem de Programação\Visual Studio C#\ESTOQUE\ESTOQUE\obj\Debug\ESTOQUE.csprojAssemblyReference.cache
+C:\Users\marce\Documents\2BCC\Linguagem de Programação\Visual Studio C#\ESTOQUE\ESTOQUE\obj\Debug\ESTOQUE.frmCliente.resources
+C:\Users\marce\Documents\2BCC\Linguagem de Programação\Visual Studio C#\ESTOQUE\ESTOQUE\obj\Debug\ESTOQUE.Properties.Resources.resources
+C:\Users\marce\Documents\2BCC\Linguagem de Programação\Visual Studio C#\ESTOQUE\ESTOQUE\obj\Debug\ESTOQUE.csproj.GenerateResource.cache
+C:\Users\marce\Documents\2BCC\Linguagem de Programação\Visual Studio C#\ESTOQUE\ESTOQUE\obj\Debug\ESTOQUE.csproj.CoreCompileInputs.cache
+C:\Users\marce\Documents\2BCC\Linguagem de Programação\Visual Studio C#\ESTOQUE\ESTOQUE\obj\Debug\ESTOQUE.exe
+C:\Users\marce\Documents\2BCC\Linguagem de Programação\Visual Studio C#\ESTOQUE\ESTOQUE\obj\Debug\ESTOQUE.pdb
+C:\Users\marce\Documents\2BCC\Linguagem de Programação\Visual Studio C#\ESTOQUE\ESTOQUE\obj\Debug\ESTOQUE.VIEW.frmProdutos.resources
