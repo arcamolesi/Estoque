@@ -9,3 +9,14 @@ C:\Users\marce\Documents\2BCC\Linguagem de Programação\Visual Studio C#\ESTOQU
 C:\Users\marce\Documents\2BCC\Linguagem de Programação\Visual Studio C#\ESTOQUE\ESTOQUE\obj\Debug\ESTOQUE.exe
 C:\Users\marce\Documents\2BCC\Linguagem de Programação\Visual Studio C#\ESTOQUE\ESTOQUE\obj\Debug\ESTOQUE.pdb
 C:\Users\marce\Documents\2BCC\Linguagem de Programação\Visual Studio C#\ESTOQUE\ESTOQUE\obj\Debug\ESTOQUE.VIEW.frmProdutos.resources
+D:\Aulas_2019\LPBCC\Programas\DOTNET\Estoque\ESTOQUE\bin\Debug\ESTOQUE.exe.config
+D:\Aulas_2019\LPBCC\Programas\DOTNET\Estoque\ESTOQUE\bin\Debug\ESTOQUE.exe
+D:\Aulas_2019\LPBCC\Programas\DOTNET\Estoque\ESTOQUE\bin\Debug\ESTOQUE.pdb
+D:\Aulas_2019\LPBCC\Programas\DOTNET\Estoque\ESTOQUE\obj\Debug\ESTOQUE.csprojAssemblyReference.cache
+D:\Aulas_2019\LPBCC\Programas\DOTNET\Estoque\ESTOQUE\obj\Debug\ESTOQUE.frmCliente.resources
+D:\Aulas_2019\LPBCC\Programas\DOTNET\Estoque\ESTOQUE\obj\Debug\ESTOQUE.Properties.Resources.resources
+D:\Aulas_2019\LPBCC\Programas\DOTNET\Estoque\ESTOQUE\obj\Debug\ESTOQUE.VIEW.FrmProdutos.resources
+D:\Aulas_2019\LPBCC\Programas\DOTNET\Estoque\ESTOQUE\obj\Debug\ESTOQUE.csproj.GenerateResource.cache
+D:\Aulas_2019\LPBCC\Programas\DOTNET\Estoque\ESTOQUE\obj\Debug\ESTOQUE.csproj.CoreCompileInputs.cache
+D:\Aulas_2019\LPBCC\Programas\DOTNET\Estoque\ESTOQUE\obj\Debug\ESTOQUE.exe
+D:\Aulas_2019\LPBCC\Programas\DOTNET\Estoque\ESTOQUE\obj\Debug\ESTOQUE.pdb

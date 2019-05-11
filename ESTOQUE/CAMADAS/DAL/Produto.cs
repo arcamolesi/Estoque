@@ -47,8 +47,9 @@ namespace ESTOQUE.CAMADAS.DAL
         public void Insert(MODEL.Produto produto)
         {
             SqlConnection conexao = new SqlConnection(strCon);
-            string sql = "Insert into Produtos values(@descricao, @quantidade, @valor)";
+            string sql = "Insert into Produtos values (@descricao, @quantidade, @valor);";
             SqlCommand cmd = new SqlCommand(sql, conexao);
+            cmd.Parameters.AddWithValue("@id", produto.id); 
             cmd.Parameters.AddWithValue("@descricao", produto.descricao);
             cmd.Parameters.AddWithValue("@quantidade", produto.quantidade);
             cmd.Parameters.AddWithValue("@valor", produto.valor);
@@ -84,6 +85,28 @@ namespace ESTOQUE.CAMADAS.DAL
             catch
             {
                 Console.WriteLine("Erro de Atualização de Produtos...");
+            }
+            finally
+            {
+                conexao.Close();
+            }
+        }
+
+        public void Delete(int id)
+        {
+            SqlConnection conexao = new SqlConnection(strCon);
+            string sql = "Delete from Produtos where id=@id";
+            SqlCommand cmd = new SqlCommand(sql, conexao);
+            cmd.Parameters.AddWithValue("@id", id);
+           
+            try
+            {
+                conexao.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch
+            {
+                Console.WriteLine("Erro de Remoção de Produtos...");
             }
             finally
             {

@@ -22,13 +22,13 @@ namespace ESTOQUE.VIEW
             txtDescricao.Enabled = status;
             txtQuantidade.Enabled = status;
             txtValor.Enabled = status;
-            dgvProdutos.Enabled = status;
+            dgvProdutos.Enabled = !status;
 
             btnInserir.Enabled = !status;
             btnEditar.Enabled = !status;
             btnRemover.Enabled = !status;
             btnGravar.Enabled = status;
-            btnCancelar.Enabled = status;
+           // btnCancelar.Enabled = status;
             btnSair.Enabled = true;
         }
 
@@ -59,22 +59,13 @@ namespace ESTOQUE.VIEW
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            CAMADAS.MODEL.Produto produto = new CAMADAS.MODEL.Produto();
-            produto.id = Convert.ToInt32(lblId.Text);
-            produto.descricao = txtDescricao.Text;
-            produto.quantidade = Convert.ToSingle(txtQuantidade.Text);
-            produto.valor = Convert.ToSingle(txtValor.Text);
-
-            CAMADAS.DAL.Produto dalProd = new CAMADAS.DAL.Produto();
-            dalProd.Update(produto);
-
-            dgvProdutos.DataSource = "";
-            dgvProdutos.DataSource = dalProd.Select();
-
-            lblId.Text = "";
-            txtDescricao.Text = "";
-            txtQuantidade.Text = "";
-            txtValor.Text = "";
+             
+            if (lblId.Text.Length>0)
+            {
+                habilitaCampos(true);
+                txtDescricao.Focus();
+            }
+            else MessageBox.Show("Sem registros para editar", "Editar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); 
         }
 
         private void dgvProdutos_DoubleClick(object sender, EventArgs e)
@@ -93,13 +84,34 @@ namespace ESTOQUE.VIEW
         private void btnGravar_Click(object sender, EventArgs e)
         {
             CAMADAS.DAL.Produto dalProd = new CAMADAS.DAL.Produto();
-            CAMADAS.MODEL.Produto produto = new CAMADAS.MODEL.Produto();
-            produto.id = Convert.ToInt32(lblId.Text);
-            produto.descricao = txtDescricao.Text;
-            produto.quantidade = Convert.ToSingle(txtQuantidade.Text);
-            produto.valor = Convert.ToSingle(txtValor.Text);
-            dalProd.Insert(produto);
-            
+            int id = Convert.ToInt32(lblId.Text);
+            string texto, rotulo; 
+            if (id < 0)
+            {
+               texto = "Confirma Inclusão?";
+               rotulo = "Incluir";
+            }
+            else
+            {
+                texto = "Confirma Atualização?";
+                rotulo = "Atualizar";
+            }
+            DialogResult result;
+            result = MessageBox.Show(texto, rotulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question,MessageBoxDefaultButton.Button1);
+            if (result == DialogResult.Yes)
+            {
+                CAMADAS.MODEL.Produto produto = new CAMADAS.MODEL.Produto();
+                produto.id = Convert.ToInt32(lblId.Text);
+                produto.descricao = txtDescricao.Text;
+                produto.quantidade = Convert.ToSingle(txtQuantidade.Text);
+                produto.valor = Convert.ToSingle(txtValor.Text);
+
+                if (id < 0)
+                    dalProd.Insert(produto);
+                else dalProd.Update(produto); 
+            }
+            else MessageBox.Show("Dados não gravados", rotulo, 
+                                    MessageBoxButtons.OK ,MessageBoxIcon.Information); 
             limpaCampos();
             habilitaCampos(false);
 
@@ -112,6 +124,26 @@ namespace ESTOQUE.VIEW
         {
             limpaCampos();
             habilitaCampos(false);
+        }
+
+        private void btnRemover_Click(object sender, EventArgs e)
+        {
+            if (lblId.Text.Length > 0)
+            {
+                DialogResult result;
+                result = MessageBox.Show("Confirma Remoção", "Remover", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                CAMADAS.DAL.Produto dalProd = new CAMADAS.DAL.Produto(); 
+                if (result == DialogResult.Yes)
+                {
+                    int id = Convert.ToInt32(lblId.Text);
+                    dalProd.Delete(id); 
+                }
+
+                limpaCampos(); 
+                dgvProdutos.DataSource = "";
+                dgvProdutos.DataSource = dalProd.Select(); 
+
+            }
         }
     }
 }

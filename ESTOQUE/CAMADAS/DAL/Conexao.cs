@@ -10,7 +10,7 @@ namespace ESTOQUE.CAMADAS.DAL
     {
         public static string getConexao()
         {
-            return @"Data Source=.\sqlexpress;Initial Catalog=ESTOQUE;Integrated Security=True";
+            return @"Data Source=.\SQLEXPRESS;Initial Catalog=ESTOQUE2019;Integrated Security=True";
         }
     }
 }
