@@ -42,9 +42,10 @@ namespace ESTOQUE.VIEW
 
         private void frmProdutos_Load(object sender, EventArgs e)
         {
-            CAMADAS.DAL.Produto dalProd = new CAMADAS.DAL.Produto();
+           
+            CAMADAS.BLL.Produto bllProd = new CAMADAS.BLL.Produto(); 
             dgvProdutos.DataSource = "";
-            dgvProdutos.DataSource = dalProd.Select();
+            dgvProdutos.DataSource = bllProd.Select();
 
             habilitaCampos(false);
         }
@@ -83,7 +84,7 @@ namespace ESTOQUE.VIEW
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            CAMADAS.DAL.Produto dalProd = new CAMADAS.DAL.Produto();
+            CAMADAS.BLL.Produto bllProd = new CAMADAS.BLL.Produto(); 
             int id = Convert.ToInt32(lblId.Text);
             string texto, rotulo; 
             if (id < 0)
@@ -107,8 +108,8 @@ namespace ESTOQUE.VIEW
                 produto.valor = Convert.ToSingle(txtValor.Text);
 
                 if (id < 0)
-                    dalProd.Insert(produto);
-                else dalProd.Update(produto); 
+                    bllProd.Insert(produto);
+                else bllProd.Update(produto); 
             }
             else MessageBox.Show("Dados não gravados", rotulo, 
                                     MessageBoxButtons.OK ,MessageBoxIcon.Information); 
@@ -116,7 +117,7 @@ namespace ESTOQUE.VIEW
             habilitaCampos(false);
 
             dgvProdutos.DataSource = "";
-            dgvProdutos.DataSource = dalProd.Select();
+            dgvProdutos.DataSource = bllProd.Select();
 
         }
 
@@ -132,16 +133,16 @@ namespace ESTOQUE.VIEW
             {
                 DialogResult result;
                 result = MessageBox.Show("Confirma Remoção", "Remover", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-                CAMADAS.DAL.Produto dalProd = new CAMADAS.DAL.Produto(); 
+                CAMADAS.BLL.Produto bllProd = new CAMADAS.BLL.Produto(); 
                 if (result == DialogResult.Yes)
                 {
                     int id = Convert.ToInt32(lblId.Text);
-                    dalProd.Delete(id); 
+                    bllProd.Delete(id); 
                 }
 
                 limpaCampos(); 
                 dgvProdutos.DataSource = "";
-                dgvProdutos.DataSource = dalProd.Select(); 
+                dgvProdutos.DataSource = bllProd.Select(); 
 
             }
         }
