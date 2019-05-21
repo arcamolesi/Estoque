@@ -17,7 +17,7 @@ namespace ESTOQUE
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new VIEW.FrmProdutos());
+            Application.Run(new VIEW.frmMenu());
         }
     }
 }
