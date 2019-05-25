@@ -8,6 +8,17 @@ namespace ESTOQUE.CAMADAS.BLL
 {
     public class Produto
     {
+        public List<MODEL.Produto> SelectById(int id)
+        {
+            DAL.Produto dalProd = new DAL.Produto();
+            return dalProd.SelectByID(id);
+        }
+
+        public List<MODEL.Produto> SelectByDescricao(string descricao)
+        {
+            DAL.Produto dalProd = new DAL.Produto();
+            return dalProd.SelectByDescricao(descricao);
+        }
         public List<MODEL.Produto> Select()
         {
             DAL.Produto dalProd = new DAL.Produto();

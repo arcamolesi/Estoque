@@ -146,5 +146,56 @@ namespace ESTOQUE.VIEW
 
             }
         }
+
+        private void btnPesquisa_Click(object sender, EventArgs e)
+        {
+            gpbPesquisa.Visible = !gpbPesquisa.Visible; 
+        }
+
+        private void rdbTodos_CheckedChanged(object sender, EventArgs e)
+        {
+            lblTexto.Visible = false;
+            txtPesquisa.Visible = false;
+            CAMADAS.BLL.Produto bllProd = new CAMADAS.BLL.Produto();
+            dgvProdutos.DataSource = "";
+            dgvProdutos.DataSource = bllProd.Select(); 
+        }
+
+        private void rdbID_CheckedChanged(object sender, EventArgs e)
+        {
+            lblTexto.Text = "Informe o ID: ";
+            lblTexto.Visible = true;
+            txtPesquisa.Text = "";
+            txtPesquisa.Visible = true;
+            txtPesquisa.Focus(); 
+        }
+
+        private void rdbDescricao_CheckedChanged(object sender, EventArgs e)
+        {
+            lblTexto.Text = "Informe a Descrição: ";
+            lblTexto.Visible = true;
+            txtPesquisa.Text = ""; 
+            txtPesquisa.Visible = true;
+            txtPesquisa.Focus();
+        }
+
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            List<CAMADAS.MODEL.Produto> listaProdutos = new List<CAMADAS.MODEL.Produto>();
+            CAMADAS.BLL.Produto bllProd = new CAMADAS.BLL.Produto();
+
+            if (rdbTodos.Checked)
+                listaProdutos = bllProd.Select();
+            else if (rdbID.Checked)
+            {
+                int id = (txtPesquisa.Text != "") ? Convert.ToInt32(txtPesquisa.Text) : 0; 
+                listaProdutos = bllProd.SelectById(id);
+            }
+            else if (rdbDescricao.Checked)
+                listaProdutos = bllProd.SelectByDescricao(txtPesquisa.Text);
+
+            dgvProdutos.DataSource = "";
+            dgvProdutos.DataSource = listaProdutos; 
+        }
     }
 }
