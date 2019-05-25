@@ -16,7 +16,8 @@ namespace ESTOQUE.CAMADAS.DAL
         {
             List<MODEL.Venda> lstVenda = new List<MODEL.Venda>();
             SqlConnection conexao = new SqlConnection(strCon);
-            string sql = "Select * from Vendas";
+            string sql = "Select Vendas.id, Vendas.cliente, Clientes.nome, Vendas.data from Vendas "; 
+                sql += " inner join Clientes on Vendas.cliente=Clientes.id";
             SqlCommand cmd = new SqlCommand(sql, conexao);
             try
             {
@@ -26,7 +27,8 @@ namespace ESTOQUE.CAMADAS.DAL
                 {
                     MODEL.Venda venda = new MODEL.Venda();
                     venda.id = Convert.ToInt32(dados["id"].ToString());
-                    venda.cliente = Convert.ToInt32(dados["venda"].ToString());
+                    venda.cliente = Convert.ToInt32(dados["cliente"].ToString());
+                    venda.nome = dados["nome"].ToString(); 
                     venda.data = Convert.ToDateTime(dados["data"].ToString());
                    
                     lstVenda.Add(venda);
@@ -47,7 +49,7 @@ namespace ESTOQUE.CAMADAS.DAL
         public void Insert(MODEL.Venda venda)
         {
             SqlConnection conexao = new SqlConnection(strCon);
-            string sql = "Insert into Vendas values(@cliente, @data)";
+            string sql = "Insert into Vendas values( @data, @cliente)";
             SqlCommand cmd = new SqlCommand(sql, conexao);
             cmd.Parameters.AddWithValue("@cliente", venda.cliente);
             cmd.Parameters.AddWithValue("@data", venda.data);
@@ -69,7 +71,7 @@ namespace ESTOQUE.CAMADAS.DAL
         public void Update(MODEL.Venda venda)
         {
             SqlConnection conexao = new SqlConnection(strCon);
-            string sql = "Update Vendas set nome=@cliente, aniversario=@data where id=@id";
+            string sql = "Update Vendas set cliente=@cliente, data=@data where id=@id";
             SqlCommand cmd = new SqlCommand(sql, conexao);
             cmd.Parameters.AddWithValue("@id", venda.id);
             cmd.Parameters.AddWithValue("@cliente", venda.cliente);

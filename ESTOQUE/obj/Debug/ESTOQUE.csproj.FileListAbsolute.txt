@@ -22,3 +22,4 @@ D:\Aulas_2019\LPBCC\Programas\DOTNET\Estoque\ESTOQUE\obj\Debug\ESTOQUE.exe
 D:\Aulas_2019\LPBCC\Programas\DOTNET\Estoque\ESTOQUE\obj\Debug\ESTOQUE.pdb
 D:\Aulas_2019\LPBCC\Programas\DOTNET\Estoque\ESTOQUE\obj\Debug\ESTOQUE.VIEW.frmMenu.resources
 D:\Aulas_2019\LPBCC\Programas\DOTNET\Estoque\ESTOQUE\obj\Debug\ESTOQUE.VIEW.frmSobre.resources
+D:\Aulas_2019\LPBCC\Programas\DOTNET\Estoque\ESTOQUE\obj\Debug\ESTOQUE.VIEW.frmVendas.resources

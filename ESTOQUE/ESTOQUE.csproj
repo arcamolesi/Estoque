@@ -81,6 +81,12 @@
     <Compile Include="VIEW\frmSobre.Designer.cs">
       <DependentUpon>frmSobre.cs</DependentUpon>
     </Compile>
+    <Compile Include="VIEW\frmVendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\frmVendas.Designer.cs">
+      <DependentUpon>frmVendas.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="VIEW\frmCliente.resx">
       <DependentUpon>frmCliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -101,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VIEW\frmSobre.resx">
       <DependentUpon>frmSobre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\frmVendas.resx">
+      <DependentUpon>frmVendas.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

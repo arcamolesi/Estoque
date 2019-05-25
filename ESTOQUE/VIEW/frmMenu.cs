@@ -46,5 +46,12 @@ namespace ESTOQUE.VIEW
             frmSobre frmSob = new frmSobre();
             frmSob.ShowDialog(); 
         }
+
+        private void vendaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmVendas frmVen = new frmVendas();
+            frmVen.MdiParent = this;
+            frmVen.Show(); 
+        }
     }
 }
