@@ -46,12 +46,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CAMADAS\BLL\Venda.cs" />
     <Compile Include="CAMADAS\BLL\Produto.cs" />
+    <Compile Include="CAMADAS\DAL\Venda.cs" />
     <Compile Include="CAMADAS\DAL\Cliente.cs" />
     <Compile Include="CAMADAS\DAL\Conexao.cs" />
     <Compile Include="CAMADAS\DAL\Produto.cs" />
     <Compile Include="CAMADAS\MODEL\Cliente.cs" />
     <Compile Include="CAMADAS\MODEL\Produto.cs" />
+    <Compile Include="CAMADAS\MODEL\Venda.cs" />
     <Compile Include="VIEW\frmCliente.cs">
       <SubType>Form</SubType>
     </Compile>
