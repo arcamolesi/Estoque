@@ -14,16 +14,16 @@ namespace ESTOQUE.CAMADAS.BLL
             return dalVenda.Select(); 
         }
         
-        public void Insert (MODEL.Venda produto)
+        public void Insert (MODEL.Venda venda)
         {
-            DAL.Venda dalProd = new DAL.Venda();
-           dalProd.Insert(produto); 
+            DAL.Venda dalVenda = new DAL.Venda();
+            dalVenda.Insert(venda); 
         }
 
-        public void Update (MODEL.Venda produto)
+        public void Update (MODEL.Venda venda)
         {
-            DAL.Venda dalProd = new DAL.Venda();
-            dalProd.Update(produto);
+            DAL.Venda dalVenda = new DAL.Venda();
+            dalVenda.Update(venda);
         }
 
         public void Delete (int id)

@@ -27,7 +27,11 @@ namespace ESTOQUE.VIEW
 
             CAMADAS.BLL.Venda bllVenda = new CAMADAS.BLL.Venda();
             dgvVendas.DataSource = "";
-            dgvVendas.DataSource = bllVenda.Select(); 
+            List<CAMADAS.MODEL.Venda> listaVenda = new List<CAMADAS.MODEL.Venda>();
+            listaVenda = bllVenda.Select();
+            dgvVendas.DataSource = listaVenda;
+                     
+
         }
 
         private void limparCamposVenda()
@@ -106,6 +110,12 @@ namespace ESTOQUE.VIEW
             lblVendaID.Text = dgvVendas.SelectedRows[0].Cells["id"].Value.ToString();
             dtpDataVenda.Value = Convert.ToDateTime(dgvVendas.SelectedRows[0].Cells["data"].Value.ToString());
             cmbCliente.SelectedValue = Convert.ToInt32(dgvVendas.SelectedRows[0].Cells["cliente"].Value.ToString());
+
+        }
+
+        private void dgvVendas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
