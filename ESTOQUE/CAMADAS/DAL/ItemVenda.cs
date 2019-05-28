@@ -11,7 +11,45 @@ namespace ESTOQUE.CAMADAS.DAL
     public class ItemVenda
     {
         private string strCon = Conexao.getConexao();
+        
+        
+        public List<MODEL.ItemVenda> SelectByIDVenda(int idVenda)
+        {
+            List<MODEL.ItemVenda> lstVenda = new List<MODEL.ItemVenda>();
+            SqlConnection conexao = new SqlConnection(strCon);
+            string sql = "Select ItemVenda.id, ItemVenda.venda, ItemVenda.produto, " +
+                " Produtos.descricao, ItemVenda.quantidade, ItemVenda.valor from " +
+                " ItemVenda inner join Produtos on ItemVenda.produto=Produtos.id " +
+                " where ItemVenda.venda = @idVenda"; 
+            SqlCommand cmd = new SqlCommand(sql, conexao);
+            cmd.Parameters.AddWithValue("@idVenda", idVenda);
+            try
+            {
+                conexao.Open();
+                SqlDataReader dados = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                while (dados.Read())
+                {
+                    MODEL.ItemVenda itemVenda = new MODEL.ItemVenda();
+                    itemVenda.id = Convert.ToInt32(dados["id"].ToString());
+                    itemVenda.venda = Convert.ToInt32(dados["venda"].ToString());
+                    itemVenda.produto = Convert.ToInt32(dados["produto"].ToString());
+                    itemVenda.descricao = dados["descricao"].ToString();
+                    itemVenda.quantidade = Convert.ToSingle(dados["quantidade"].ToString());
+                    itemVenda.valor = Convert.ToSingle(dados["valor"].ToString());
+                    lstVenda.Add(itemVenda);
 
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Consulta Select de Vendas deu problema");
+            }
+            finally
+            {
+                conexao.Close(); //não é necessario pois usou o CommandBehavior.CloseConnection
+            }
+            return lstVenda;
+        }
         public List<MODEL.ItemVenda> Select()
         {
             List<MODEL.ItemVenda> lstVenda = new List<MODEL.ItemVenda>();
