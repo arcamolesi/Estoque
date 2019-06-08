@@ -59,7 +59,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.dgvItemVenda = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -78,7 +77,6 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.Color.Silver;
-            this.splitContainer1.Panel1.Controls.Add(this.button1);
             this.splitContainer1.Panel1.Controls.Add(this.btnNovaVenda);
             this.splitContainer1.Panel1.Controls.Add(this.btnCancelarVenda);
             this.splitContainer1.Panel1.Controls.Add(this.btnGravarVenda);
@@ -415,15 +413,6 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Itens da Venda";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(428, 102);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // frmVendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -480,6 +469,5 @@
         private System.Windows.Forms.Label lblVenda;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button button1;
     }
 }
