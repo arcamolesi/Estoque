@@ -41,6 +41,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.lblVenda = new System.Windows.Forms.Label();
             this.BtnCancelItem = new System.Windows.Forms.Button();
             this.btnGrvItem = new System.Windows.Forms.Button();
@@ -57,6 +59,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.dgvItemVenda = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -75,6 +78,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.Color.Silver;
+            this.splitContainer1.Panel1.Controls.Add(this.button1);
             this.splitContainer1.Panel1.Controls.Add(this.btnNovaVenda);
             this.splitContainer1.Panel1.Controls.Add(this.btnCancelarVenda);
             this.splitContainer1.Panel1.Controls.Add(this.btnGravarVenda);
@@ -92,6 +96,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.splitContainer1.Panel2.Controls.Add(this.lblTotal);
+            this.splitContainer1.Panel2.Controls.Add(this.label11);
             this.splitContainer1.Panel2.Controls.Add(this.lblVenda);
             this.splitContainer1.Panel2.Controls.Add(this.BtnCancelItem);
             this.splitContainer1.Panel2.Controls.Add(this.btnGrvItem);
@@ -234,6 +240,24 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Vendas de Produtos";
             // 
+            // lblTotal
+            // 
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.Location = new System.Drawing.Point(222, 267);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(182, 23);
+            this.lblTotal.TabIndex = 18;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(106, 267);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(116, 29);
+            this.label11.TabIndex = 17;
+            this.label11.Text = "Total R$: ";
+            // 
             // lblVenda
             // 
             this.lblVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -251,6 +275,7 @@
             this.BtnCancelItem.TabIndex = 15;
             this.BtnCancelItem.Text = "Cancelar Item";
             this.BtnCancelItem.UseVisualStyleBackColor = true;
+            this.BtnCancelItem.Click += new System.EventHandler(this.BtnCancelItem_Click);
             // 
             // btnGrvItem
             // 
@@ -283,6 +308,7 @@
             this.cmbProd.Size = new System.Drawing.Size(285, 37);
             this.cmbProd.TabIndex = 12;
             this.cmbProd.SelectedIndexChanged += new System.EventHandler(this.cmbProd_SelectedIndexChanged);
+            this.cmbProd.Leave += new System.EventHandler(this.cmbProd_Leave);
             // 
             // txtValor
             // 
@@ -291,6 +317,8 @@
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(142, 34);
             this.txtValor.TabIndex = 11;
+            this.txtValor.TextChanged += new System.EventHandler(this.txtValor_TextChanged);
+            this.txtValor.Leave += new System.EventHandler(this.txtValor_Leave);
             // 
             // txtQtde
             // 
@@ -299,6 +327,7 @@
             this.txtQtde.Name = "txtQtde";
             this.txtQtde.Size = new System.Drawing.Size(100, 34);
             this.txtQtde.TabIndex = 10;
+            this.txtQtde.Leave += new System.EventHandler(this.txtQtde_Leave);
             // 
             // txtProdID
             // 
@@ -386,6 +415,15 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Itens da Venda";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(428, 102);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // frmVendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -440,5 +478,8 @@
         private System.Windows.Forms.DataGridView dgvItemVenda;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblVenda;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media; 
 
 namespace ESTOQUE.VIEW
 {
     public partial class frmVendas : Form
     {
+        public CAMADAS.MODEL.Produto produto { get; set; }
+
         public frmVendas()
         {
             InitializeComponent();
@@ -43,9 +46,6 @@ namespace ESTOQUE.VIEW
             dgvItemVenda.DataSource = "";
             dgvItemVenda.DataSource = bllItemVenda.Select(); 
 
-
-
-
         }
 
         private void limparCamposVenda()
@@ -54,7 +54,6 @@ namespace ESTOQUE.VIEW
             dtpDataVenda.Value = Convert.ToDateTime(DateTime.Now.ToLongDateString());
             txtClienteID.Text = "0";
             cmbCliente.SelectedValue = 0; 
-
         }
 
         private void limparCamposItemVenda()
@@ -66,6 +65,26 @@ namespace ESTOQUE.VIEW
             txtValor.Text = "";
             cmbProd.SelectedValue = 0; 
         }
+
+        void recuperaProduto(int idProd)
+        {
+            CAMADAS.BLL.Produto bllProd = new CAMADAS.BLL.Produto();
+            List<CAMADAS.MODEL.Produto> lstProdutos = bllProd.SelectById(idProd);
+            if (lstProdutos != null)
+                produto = lstProdutos[0];
+            else produto = null; 
+        }
+
+        void calculaTotal()
+        {   
+            //operador ternário do if
+            float qtde = (txtQtde.Text == string.Empty) ? 0 : Convert.ToSingle(txtQtde.Text);
+            float valor = (txtValor.Text == string.Empty) ? 0 : Convert.ToSingle(txtValor.Text);
+            float total = qtde * valor;
+            //lblTotal.Text = total.ToString(); 
+            lblTotal.Text = string.Format("{0:0.00}",total);
+        }
+
 
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -204,7 +223,45 @@ namespace ESTOQUE.VIEW
             }
             limparCamposItemVenda();
             dgvItemVenda.DataSource = ""; 
-            dgvItemVenda.DataSource = bllItemVenda.SelectByIDVenda(itemvenda.venda); 
+            dgvItemVenda.DataSource = bllItemVenda.SelectByIDVenda(itemvenda.venda);
+            
+        }
+
+        private void BtnCancelItem_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void cmbProd_Leave(object sender, EventArgs e)
+        {
+            int idProd = Convert.ToInt32(cmbProd.SelectedValue);
+            recuperaProduto(idProd);
+            if (produto != null)
+                txtValor.Text = produto.valor.ToString(); 
+        }
+
+        private void txtQtde_Leave(object sender, EventArgs e)
+        {
+            if (produto != null)
+            {
+                float qtde = Convert.ToSingle(txtQtde.Text);
+                if (qtde > produto.quantidade)
+                    MessageBox.Show("Quantidade Insuficiente: " + produto.quantidade.ToString());
+                calculaTotal(); 
+            }
+        }
+
+        private void txtValor_Leave(object sender, EventArgs e)
+        {
+            calculaTotal(); 
+        }
+
+        private void txtValor_TextChanged(object sender, EventArgs e)
+        {
+            try {
+                calculaTotal();
+            }
+            catch { }
         }
     }
 }
