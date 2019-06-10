@@ -12,5 +12,6 @@ namespace ESTOQUE.CAMADAS.MODEL
         public string descricao { get; set; }
         public float quantidade { get; set; }
         public float valor { get; set; }
+        public virtual float total { get { return quantidade * valor; } }
     }
 }

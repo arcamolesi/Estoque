@@ -53,5 +53,17 @@ namespace ESTOQUE.VIEW
             frmVen.MdiParent = this;
             frmVen.Show(); 
         }
+
+        private void produtosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Relatorios.relProdutos.relGeralProdutos(); 
+        }
+
+        private void produtoComFiltrosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Relatorios.frmRelProd frmRProd = new Relatorios.frmRelProd();
+            frmRProd.MdiParent = this; 
+            frmRProd.Show(); 
+        }
     }
 }
